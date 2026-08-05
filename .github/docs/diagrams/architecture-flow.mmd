@@ -1,0 +1,46 @@
+flowchart TD
+    U[Developer Request] --> O[ProjectOrchestrator]
+
+    O --> ONB[Onboarding\nRequirements -> Repo Analysis -> Framework Detection -> MCP Validation]
+    ONB --> PLAN[Planning and Agent Selection]
+
+    PLAN --> BA[BusinessAnalyst]
+    PLAN --> PA[ProductArchitect]
+    PLAN --> UIX[UIDesigner]
+    PLAN --> TE[TestEngineer]
+    PLAN --> BE[BackendDeveloper]
+    PLAN --> FE[UIDeveloper]
+    PLAN --> QG[QualityGate]
+    PLAN --> CR[CodeReviewer]
+
+    BA --> MEM[(Shared Context Memory)]
+    PA --> MEM
+    UIX --> MEM
+    TE --> MEM
+    BE --> MEM
+    FE --> MEM
+    QG --> MEM
+    CR --> MEM
+    O --> MEM
+
+    RULES[[Rules Layer\ndevelopment-cycle\ncontract-first\ntdd\nmodel-separation\nhallucination-prevention]] -.governs all agents.-> BA
+    RULES -.-> PA
+    RULES -.-> UIX
+    RULES -.-> TE
+    RULES -.-> BE
+    RULES -.-> FE
+    RULES -.-> QG
+    RULES -.-> CR
+    RULES -.-> O
+
+    SKILLS[[Skills Layer\nplanning\narchitecture\ntesting\nreview\ncode-analysis\nmemory\nmcp]] -.execution playbooks.-> BA
+    SKILLS -.-> PA
+    SKILLS -.-> UIX
+    SKILLS -.-> TE
+    SKILLS -.-> BE
+    SKILLS -.-> FE
+    SKILLS -.-> QG
+    SKILLS -.-> CR
+    SKILLS -.-> O
+
+    O --> OUT[Delivery: Code + Test Reports + Review Report + Updated Memory]

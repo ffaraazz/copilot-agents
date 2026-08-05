@@ -1,0 +1,28 @@
+flowchart TD
+    A[Session Starts] --> B[Load Shared Context Files]
+    B --> C[Set Current Lifecycle Stage]
+
+    C --> D[Work Milestone Reached]
+    D --> E[Update session-memory.md\n- stage\n- objective\n- model assignment\n- risks]
+    D --> F[Update progress.md\n- completed/in-progress/pending\n- test status\n- review status]
+    D --> G[Update repo-profile.md\n- stack detection\n- confidence\n- evidence]
+    D --> H[Update contract.md\n- frozen contract\n- version\n- change notes]
+    D --> I[Update decision-log.md\n- decision\n- rationale\n- alternatives]
+
+    E --> J{Failure or New Evidence?}
+    F --> J
+    G --> J
+    H --> J
+    I --> J
+
+    J -->|Yes| K[Return to Earliest Impacted Lifecycle Stage]
+    J -->|No| L[Continue Current Stage]
+
+    K --> C
+    L --> D
+
+    M[Code Review Completed] --> N[Write model evidence\nand independence status]
+    N --> E
+
+    Q[Quality Gate Completed] --> R[Write quality gate pass or fail\nand remediation actions]
+    R --> F

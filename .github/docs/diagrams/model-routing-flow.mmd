@@ -1,0 +1,26 @@
+flowchart TD
+    A[Implementation Completed] --> B{Implementation Model Family?}
+
+    B -->|GPT-family| C[Route to CodeReviewer with Claude-family model]
+    B -->|Claude-family| D[Route to CodeReviewer with GPT-family model]
+    B -->|Gemini-family| E[Prefer GPT-family reviewer, fallback Claude-family]
+    B -->|Unknown| F[Choose strongest non-matching family]
+
+    C --> G{Reviewer model available?}
+    D --> G
+    E --> G
+    F --> G
+
+    G -->|Yes| H[Run Adversarial Review]
+    G -->|No| I[Use fallback non-matching family]
+
+    I --> J{Any non-matching family left?}
+    J -->|Yes| H
+    J -->|No| K[Same-family review as last resort\nMark independence degraded]
+
+    H --> L[Record evidence in code-review-report.md\nimplementation model, reviewer model, source of proof]
+    K --> L
+
+    L --> M{Model separation satisfied?}
+    M -->|Yes| N[Continue lifecycle]
+    M -->|No or missing evidence| O[Block review completion]

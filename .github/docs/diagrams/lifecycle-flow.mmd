@@ -1,0 +1,34 @@
+flowchart LR
+    S1[1 Prompt] --> S2[2 Requirements Analysis]
+    S2 --> S3[3 Repository Analysis]
+    S3 --> S4[4 Framework Detection]
+    S4 --> S5[5 MCP Validation]
+    S5 --> S6[6 Architecture Analysis]
+    S6 --> S7[7 Contract Design if needed]
+    S7 --> S8[8 Developer Approval]
+    S8 --> S9[9 Planning]
+    S9 --> S10[10 TDD or Test Plan]
+    S10 --> S11[11 Implementation]
+    S11 --> S12[12 Integration Testing]
+    S12 --> S13[13 Quality Gate]
+    S13 --> S14[14 Code Review]
+    S14 --> S15[15 Refactoring]
+    S15 --> S16[16 Documentation Update]
+    S16 --> S17[17 Validation]
+    S17 --> S18[18 Completion]
+
+    S14 --> G1{Model Separation\nSatisfied?}
+    G1 -->|No| S9
+    G1 -->|Yes| S15
+
+    S13 --> G4{Quality Gate Passed?}
+    G4 -->|No| S9
+    G4 -->|Yes| S14
+
+    S7 --> G2{Contract Approved?}
+    G2 -->|No| S6
+    G2 -->|Yes| S8
+
+    S10 --> G3{Tests Failing First?}
+    G3 -->|No| S9
+    G3 -->|Yes| S11
