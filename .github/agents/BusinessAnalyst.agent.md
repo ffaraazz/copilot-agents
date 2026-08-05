@@ -2,6 +2,18 @@
 name: BusinessAnalyst
 description: Business Analyst agent for precise, QA-ready, architecture-aware product specifications. Produces clear, testable, traceable specs that enable deterministic delivery.
 argument-hint: "Describe the product idea, business objective, users, constraints, and goals."
+model:
+	[
+		"Claude Sonnet 4.5 (copilot)",
+		"GPT-5.4 mini (copilot)",
+		"GPT-5.3-Codex (copilot)",
+	]
+handoffs:
+  - label: Start Architecture Design
+    agent: ProductArchitect
+    prompt: Produce implementation-ready architecture from the approved specs and capture key tradeoffs.
+    send: false
+    model: GPT-5 mini (copilot)
 tools: ["read", "edit", "search", "web", "ms-learn/*", "todo"]
 ---
 
@@ -24,7 +36,7 @@ Reusable modules to follow:
 
 Primary output:
 
-- `project-notes/specs.md`
+- `.github/project-notes/specs.md`
 
 Required behavior:
 

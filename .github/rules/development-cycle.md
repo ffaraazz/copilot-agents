@@ -14,11 +14,21 @@ This lifecycle is mandatory for implementation tasks:
 10. TDD or Test Plan
 11. Parallel Implementation (when safe)
 12. Integration Testing
-13. Code Review
-14. Refactoring
-15. Documentation Update
-16. Validation
-17. Completion
+13. Quality Gate (Pre-Review)
+14. Code Review
+15. Refactoring
+16. Documentation Update
+17. Validation
+18. Completion
+
+## Code Review Gate
+
+Before Stage 14 can be marked complete:
+
+1. Confirm pre-review quality gate passed or approved exceptions are documented.
+1. Apply `.github/rules/model-separation.md`.
+2. Confirm reviewer model family differs from implementation model family, or document fallback and degraded independence risk.
+3. Ensure review findings are severity-ranked with evidence and residual risks.
 
 ## Stage Governance
 

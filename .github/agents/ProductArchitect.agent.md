@@ -2,6 +2,18 @@
 name: ProductArchitect
 description: Product Architect agent for system design, technology strategy, and implementation-ready architecture. Delivers architecture, scaffold plan, and best practices based on business specs.
 argument-hint: "Design system architecture and technology strategy for specs.md"
+model:
+  [
+	"Claude Sonnet 4.5 (copilot)",
+	"GPT-5.3-Codex (copilot)",
+	"GPT-5 mini (copilot)",
+  ]
+handoffs:
+  - label: Author Failing Tests
+    agent: TestEngineer
+    prompt: Author deterministic failing tests from the frozen contract and architecture decisions.
+    send: false
+    model: GPT-5 mini (copilot)
 tools:
   [
     read,
@@ -36,10 +48,10 @@ Reusable modules to follow:
 
 Primary outputs:
 
-- `project-notes/architecture.md`
-- `project-notes/api-spec.yaml` or other approved contract artifact
-- `project-notes/scaffold-plan.md`
-- `project-notes/best-practices.md`
+- `.github/project-notes/architecture.md`
+- `.github/project-notes/api-spec.yaml` or other approved contract artifact
+- `.github/project-notes/scaffold-plan.md`
+- `.github/project-notes/best-practices.md`
 
 Required behavior:
 

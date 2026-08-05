@@ -25,6 +25,8 @@ Provide deterministic, severity-ranked quality governance.
 ## Procedure
 
 1. Validate requirement and contract traceability.
-2. Check correctness, security, performance, maintainability.
-3. Verify tests cover changed behavior.
-4. Report findings with evidence and actionable guidance.
+2. Validate model independence using `.github/rules/model-separation.md` and record implementation/reviewer model families.
+3. Check correctness, security, performance, maintainability using adversarial, disconfirming analysis.
+4. Verify tests cover changed behavior and challenge gaps with failure scenarios.
+5. Report findings with evidence and actionable guidance, then include residual risks.
+6. Include model-evidence sources used to verify implementation and reviewer model claims.

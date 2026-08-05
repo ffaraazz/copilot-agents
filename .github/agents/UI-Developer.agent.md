@@ -2,6 +2,18 @@
 name: UIDeveloper
 description: UI Developer agent for frontend implementation. Implements features using TDD after executable test suites are provided.
 argument-hint: "Implement frontend features following TDD workflow."
+model:
+  [
+    "GPT-5.3-Codex (copilot)",
+    "GPT-5 mini (copilot)",
+    "GPT-5.4 mini (copilot)",
+  ]
+handoffs:
+  - label: Run Pre-Review Quality Gate
+    agent: QualityGate
+    prompt: Run quality gate checks for overengineering, reuse, duplication, and comment hygiene before adversarial review.
+    send: false
+    model: GPT-5 mini (copilot)
 tools:
   [
     "read",
@@ -38,7 +50,7 @@ Reusable modules to follow:
 Primary outputs:
 
 - frontend source files
-- `project-notes/ui-test-report.md`
+- `.github/project-notes/ui-test-report.md`
 
 Required behavior:
 

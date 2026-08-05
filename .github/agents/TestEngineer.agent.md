@@ -2,6 +2,12 @@
 name: TestEngineer
 description: Test Engineer agent for test-driven development. Authors executable test suites before implementation; validates requirements through real test code.
 argument-hint: "Write executable test suites or validate completed implementation."
+model:
+	[
+		"GPT-5 mini (copilot)",
+		"GPT-5.3-Codex (copilot)",
+		"GPT-5.4 mini (copilot)",
+	]
 tools: [execute, read, edit, search, web, "ms-learn/*", "gitkraken/*", todo]
 ---
 
@@ -26,7 +32,7 @@ Reusable modules to follow:
 Primary outputs:
 
 - executable test files
-- `project-notes/test-report.md`
+- `.github/project-notes/test-report.md`
 
 Required behavior:
 

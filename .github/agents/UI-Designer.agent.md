@@ -2,6 +2,12 @@
 name: UIDesigner
 description: UI Designer agent for user interface design. Fetches existing Figma designs or generates production-ready designs based on specs.
 argument-hint: "Generate UI designs, fetch Figma, or create component system from specs.md"
+model:
+	[
+		"GPT-5.4 mini (copilot)",
+		"GPT-5 mini (copilot)",
+		"GPT-5.3-Codex (copilot)",
+	]
 tools: ["read", "edit", "search", "web", "ms-learn/*", "todo"]
 ---
 
@@ -24,7 +30,7 @@ Reusable modules to follow:
 
 Primary output:
 
-- `project-notes/ui-handoff.md`
+- `.github/project-notes/ui-handoff.md`
 
 Required behavior:
 
